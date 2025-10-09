@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@layer base {
+    h1 {
+        font-size: 3rem;
+        line-height: 1;
+        font-weight: 600;
+        padding-block: 1.25rem ;
+    }
+    h2 {
+        font-size: 1.875rem;
+        line-height: calc(2.25 / 1.875);
+        font-weight: 600;
+        padding-block: 1rem;
+    }
+    h3 {
+        font-size: 1.5rem;
+        line-height: calc(2 / 1.5);
+        font-weight: 600;
+        padding-block: 0.75rem;
+    }
+}
