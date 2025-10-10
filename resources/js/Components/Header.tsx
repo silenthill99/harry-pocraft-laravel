@@ -23,7 +23,7 @@ const Header = () => {
             path: "Règlement"
         }
     ]
-    const isActive = (link: string) => (`hover:underline px-2 ${component === link && "border-x"}`);
+    const isActive = (link: string) => (`hover:underline px-2 ${component === link && "border-x border-black"}`);
 
     return (
         <header className="border-b-2">
