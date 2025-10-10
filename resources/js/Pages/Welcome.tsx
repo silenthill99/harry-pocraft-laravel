@@ -1,6 +1,5 @@
 import {Head} from '@inertiajs/react';
 import PageComponents from "@/Components/PageComponents";
-import {PageProps} from "@/types";
 
 export default function Welcome() {
     return (
