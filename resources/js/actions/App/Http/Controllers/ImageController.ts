@@ -1,7 +1,7 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from '../../../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from '@/wayfinder'
 /**
 * @see \App\Http\Controllers\ImageController::create
-* @see app/Http/Controllers/ImageController.php:0
+* @see app/Http/Controllers/ImageController.php:18
 * @route '/images/create'
 */
 export const create = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ create.definition = {
 
 /**
 * @see \App\Http\Controllers\ImageController::create
-* @see app/Http/Controllers/ImageController.php:0
+* @see app/Http/Controllers/ImageController.php:18
 * @route '/images/create'
 */
 create.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ create.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ImageController::create
-* @see app/Http/Controllers/ImageController.php:0
+* @see app/Http/Controllers/ImageController.php:18
 * @route '/images/create'
 */
 create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +35,7 @@ create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\ImageController::create
-* @see app/Http/Controllers/ImageController.php:0
+* @see app/Http/Controllers/ImageController.php:18
 * @route '/images/create'
 */
 create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +45,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\ImageController::create
-* @see app/Http/Controllers/ImageController.php:0
+* @see app/Http/Controllers/ImageController.php:18
 * @route '/images/create'
 */
 const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +55,7 @@ const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 
 /**
 * @see \App\Http\Controllers\ImageController::create
-* @see app/Http/Controllers/ImageController.php:0
+* @see app/Http/Controllers/ImageController.php:18
 * @route '/images/create'
 */
 createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -65,7 +65,7 @@ createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\ImageController::create
-* @see app/Http/Controllers/ImageController.php:0
+* @see app/Http/Controllers/ImageController.php:18
 * @route '/images/create'
 */
 createForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -82,7 +82,7 @@ create.form = createForm
 
 /**
 * @see \App\Http\Controllers\ImageController::store
-* @see app/Http/Controllers/ImageController.php:0
+* @see app/Http/Controllers/ImageController.php:23
 * @route '/images'
 */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -97,7 +97,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\ImageController::store
-* @see app/Http/Controllers/ImageController.php:0
+* @see app/Http/Controllers/ImageController.php:23
 * @route '/images'
 */
 store.url = (options?: RouteQueryOptions) => {
@@ -106,7 +106,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ImageController::store
-* @see app/Http/Controllers/ImageController.php:0
+* @see app/Http/Controllers/ImageController.php:23
 * @route '/images'
 */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -116,7 +116,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\ImageController::store
-* @see app/Http/Controllers/ImageController.php:0
+* @see app/Http/Controllers/ImageController.php:23
 * @route '/images'
 */
 const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -126,7 +126,7 @@ const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => 
 
 /**
 * @see \App\Http\Controllers\ImageController::store
-* @see app/Http/Controllers/ImageController.php:0
+* @see app/Http/Controllers/ImageController.php:23
 * @route '/images'
 */
 storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -430,7 +430,7 @@ destroy.form = destroyForm
 
 /**
 * @see \App\Http\Controllers\ImageController::index
-* @see app/Http/Controllers/ImageController.php:11
+* @see app/Http/Controllers/ImageController.php:12
 * @route '/images'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -445,7 +445,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\ImageController::index
-* @see app/Http/Controllers/ImageController.php:11
+* @see app/Http/Controllers/ImageController.php:12
 * @route '/images'
 */
 index.url = (options?: RouteQueryOptions) => {
@@ -454,7 +454,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ImageController::index
-* @see app/Http/Controllers/ImageController.php:11
+* @see app/Http/Controllers/ImageController.php:12
 * @route '/images'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -464,7 +464,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\ImageController::index
-* @see app/Http/Controllers/ImageController.php:11
+* @see app/Http/Controllers/ImageController.php:12
 * @route '/images'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -474,7 +474,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\ImageController::index
-* @see app/Http/Controllers/ImageController.php:11
+* @see app/Http/Controllers/ImageController.php:12
 * @route '/images'
 */
 const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -484,7 +484,7 @@ const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\ImageController::index
-* @see app/Http/Controllers/ImageController.php:11
+* @see app/Http/Controllers/ImageController.php:12
 * @route '/images'
 */
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -494,7 +494,7 @@ indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\ImageController::index
-* @see app/Http/Controllers/ImageController.php:11
+* @see app/Http/Controllers/ImageController.php:12
 * @route '/images'
 */
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

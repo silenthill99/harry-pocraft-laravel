@@ -13,6 +13,8 @@ export interface Image {
     id: number;
     user: User;
     image_path: string;
+    title: string;
+    slug: string
 }
 
 export interface SharedData {
