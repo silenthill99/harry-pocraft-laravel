@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link, usePage} from "@inertiajs/react";
-import {accueil, images, reglement} from "@/routes";
+import {accueil, reglement} from "@/routes";
+import images from "@/routes/images";
 
 const Header = () => {
 
@@ -14,8 +15,8 @@ const Header = () => {
         },
         {
             label: "Images",
-            route: images(),
-            path: "Images"
+            route: images.index(),
+            path: "Images/Index"
         },
         {
             label: "Règlement intérieur",

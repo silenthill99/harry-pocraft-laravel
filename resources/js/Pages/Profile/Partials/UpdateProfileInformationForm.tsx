@@ -7,6 +7,7 @@ import { Link, useForm, usePage } from '@inertiajs/react';
 import { FormEventHandler } from 'react';
 import profile from "@/routes/profile";
 import verification from "@/routes/verification";
+import {SharedData} from "@/types";
 
 export default function UpdateProfileInformation({
     mustVerifyEmail,
@@ -17,7 +18,8 @@ export default function UpdateProfileInformation({
     status?: string;
     className?: string;
 }) {
-    const user = usePage().props.auth.user;
+    const {auth} = usePage<SharedData>().props
+    const user = auth.user;
 
     const { data, setData, patch, errors, processing, recentlySuccessful } =
         useForm({

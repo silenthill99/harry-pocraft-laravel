@@ -1,6 +1,6 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition } from '@/wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from '@/wayfinder'
 /**
-* @see routes/web.php:8
+* @see routes/web.php:9
 * @route '/'
 */
 export const accueil = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -14,7 +14,7 @@ accueil.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see routes/web.php:8
+* @see routes/web.php:9
 * @route '/'
 */
 accueil.url = (options?: RouteQueryOptions) => {
@@ -22,7 +22,7 @@ accueil.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see routes/web.php:8
+* @see routes/web.php:9
 * @route '/'
 */
 accueil.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -31,7 +31,7 @@ accueil.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see routes/web.php:8
+* @see routes/web.php:9
 * @route '/'
 */
 accueil.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -40,47 +40,41 @@ accueil.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see routes/web.php:17
-* @route '/images'
+* @see routes/web.php:9
+* @route '/'
 */
-export const images = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: images.url(options),
-    method: 'get',
-})
-
-images.definition = {
-    methods: ["get","head"],
-    url: '/images',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see routes/web.php:17
-* @route '/images'
-*/
-images.url = (options?: RouteQueryOptions) => {
-    return images.definition.url + queryParams(options)
-}
-
-/**
-* @see routes/web.php:17
-* @route '/images'
-*/
-images.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: images.url(options),
+const accueilForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: accueil.url(options),
     method: 'get',
 })
 
 /**
-* @see routes/web.php:17
-* @route '/images'
+* @see routes/web.php:9
+* @route '/'
 */
-images.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: images.url(options),
-    method: 'head',
+accueilForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: accueil.url(options),
+    method: 'get',
 })
 
 /**
-* @see routes/web.php:21
+* @see routes/web.php:9
+* @route '/'
+*/
+accueilForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: accueil.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+accueil.form = accueilForm
+
+/**
+* @see routes/web.php:22
 * @route '/reglement'
 */
 export const reglement = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -94,7 +88,7 @@ reglement.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see routes/web.php:21
+* @see routes/web.php:22
 * @route '/reglement'
 */
 reglement.url = (options?: RouteQueryOptions) => {
@@ -102,7 +96,7 @@ reglement.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see routes/web.php:21
+* @see routes/web.php:22
 * @route '/reglement'
 */
 reglement.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -111,7 +105,7 @@ reglement.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see routes/web.php:21
+* @see routes/web.php:22
 * @route '/reglement'
 */
 reglement.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -120,7 +114,41 @@ reglement.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see routes/web.php:25
+* @see routes/web.php:22
+* @route '/reglement'
+*/
+const reglementForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: reglement.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:22
+* @route '/reglement'
+*/
+reglementForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: reglement.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:22
+* @route '/reglement'
+*/
+reglementForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: reglement.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+reglement.form = reglementForm
+
+/**
+* @see routes/web.php:26
 * @route '/dashboard'
 */
 export const dashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -134,7 +162,7 @@ dashboard.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see routes/web.php:25
+* @see routes/web.php:26
 * @route '/dashboard'
 */
 dashboard.url = (options?: RouteQueryOptions) => {
@@ -142,7 +170,7 @@ dashboard.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see routes/web.php:25
+* @see routes/web.php:26
 * @route '/dashboard'
 */
 dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -151,13 +179,47 @@ dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see routes/web.php:25
+* @see routes/web.php:26
 * @route '/dashboard'
 */
 dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: dashboard.url(options),
     method: 'head',
 })
+
+/**
+* @see routes/web.php:26
+* @route '/dashboard'
+*/
+const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: dashboard.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:26
+* @route '/dashboard'
+*/
+dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: dashboard.url(options),
+    method: 'get',
+})
+
+/**
+* @see routes/web.php:26
+* @route '/dashboard'
+*/
+dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: dashboard.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+dashboard.form = dashboardForm
 
 /**
 * @see \App\Http\Controllers\Auth\RegisteredUserController::register
@@ -204,6 +266,43 @@ register.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
+* @see \App\Http\Controllers\Auth\RegisteredUserController::register
+* @see app/Http/Controllers/Auth/RegisteredUserController.php:21
+* @route '/register'
+*/
+const registerForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: register.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Auth\RegisteredUserController::register
+* @see app/Http/Controllers/Auth/RegisteredUserController.php:21
+* @route '/register'
+*/
+registerForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: register.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Auth\RegisteredUserController::register
+* @see app/Http/Controllers/Auth/RegisteredUserController.php:21
+* @route '/register'
+*/
+registerForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: register.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+register.form = registerForm
+
+/**
 * @see \App\Http\Controllers\Auth\AuthenticatedSessionController::login
 * @see app/Http/Controllers/Auth/AuthenticatedSessionController.php:19
 * @route '/login'
@@ -248,6 +347,43 @@ login.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
+* @see \App\Http\Controllers\Auth\AuthenticatedSessionController::login
+* @see app/Http/Controllers/Auth/AuthenticatedSessionController.php:19
+* @route '/login'
+*/
+const loginForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: login.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Auth\AuthenticatedSessionController::login
+* @see app/Http/Controllers/Auth/AuthenticatedSessionController.php:19
+* @route '/login'
+*/
+loginForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: login.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Auth\AuthenticatedSessionController::login
+* @see app/Http/Controllers/Auth/AuthenticatedSessionController.php:19
+* @route '/login'
+*/
+loginForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: login.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+login.form = loginForm
+
+/**
 * @see \App\Http\Controllers\Auth\AuthenticatedSessionController::logout
 * @see app/Http/Controllers/Auth/AuthenticatedSessionController.php:42
 * @route '/logout'
@@ -281,3 +417,24 @@ logout.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     method: 'post',
 })
 
+/**
+* @see \App\Http\Controllers\Auth\AuthenticatedSessionController::logout
+* @see app/Http/Controllers/Auth/AuthenticatedSessionController.php:42
+* @route '/logout'
+*/
+const logoutForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: logout.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\Auth\AuthenticatedSessionController::logout
+* @see app/Http/Controllers/Auth/AuthenticatedSessionController.php:42
+* @route '/logout'
+*/
+logoutForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: logout.url(options),
+    method: 'post',
+})
+
+logout.form = logoutForm

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -14,9 +15,9 @@ Route::get('/', function () {
     ]);
 })->name('accueil');
 
-Route::get('/images', function () {
-    return Inertia::render('Images');
-})->name('images');
+//Route::get('/images', function () {
+//    return Inertia::render('Index');
+//})->name('images');
 
 Route::get('/reglement', function () {
     return Inertia::render('Règlement');
@@ -30,6 +31,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::resource("images", ImageController::class)->except(['index', 'show']);
 });
+
+Route::resource("images", ImageController::class)->only(['index', 'show']);
 
 require __DIR__.'/auth.php';

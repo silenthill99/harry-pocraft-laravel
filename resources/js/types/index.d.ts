@@ -5,16 +5,20 @@ export interface User {
     email_verified_at?: string;
 }
 
-/**
- * Données partagées disponibles sur toutes les pages Inertia
- * Ces données sont automatiquement injectées par HandleInertiaRequests middleware
- */
+export interface Auth {
+    user: User;
+}
+
+export interface Image {
+    id: number;
+    user: User;
+    image_path: string;
+}
+
 export interface SharedData {
     name: string;
     quote: {message: string; author: string}
-    auth: {
-        user: User;
-    };
+    auth: Auth
     [key: string]: unknown
 }
 
