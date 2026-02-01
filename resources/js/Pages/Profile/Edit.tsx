@@ -7,13 +7,7 @@ import UpdateProfileInformationForm from './Partials/UpdateProfileInformationFor
 export default function Edit() {
     const {mustVerifyEmail, status} = usePage<{mustVerifyEmail: boolean, status?: string}>().props
     return (
-        <AuthenticatedLayout
-            header={
-                <h2 className="text-xl font-semibold leading-tight text-gray-800">
-                    Profile
-                </h2>
-            }
-        >
+        <AuthenticatedLayout>
             <Head title="Profile" />
 
             <div className="py-12">
